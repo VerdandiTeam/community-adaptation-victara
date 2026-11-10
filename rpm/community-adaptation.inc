@@ -25,6 +25,7 @@ mkdir -p $RPM_BUILD_ROOT/%{_datadir}/community-adaptation/
 
 %if "%{flavour}" != "localbuild"
 sed -e "s|@FLAVOUR@|%{flavour}|g" \
+    -e "s|@SUBPROJECT@|%{?adaptation_subproject::/%{adaptation_subproject}}|g" \
 %if "%{flavour}" != "testing"
     -e "s|sailfishos_%%(releaseMajorMinor)|sailfish_latest_%%(arch)|g" \
 %endif
